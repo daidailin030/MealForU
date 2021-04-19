@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login"
+    android:background="#FFFFFF">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/ScrollView">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/userText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="280dp"
+                android:layout_marginRight="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="信箱"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/userEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@+id/userText"
+                android:layout_marginTop="280dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Enter your Email"
+                android:layout_toRightOf="@+id/userText" />
+
+            <TextView
+                android:id="@+id/passwdText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="350dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="密碼"
+                android:textSize="24dp" />
+            <EditText
+                android:id="@+id/passwdEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="350dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Enter your Password"
+                android:layout_toRightOf="@id/passwdText" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/forgetpasswdButton"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:onClick="forgetpasswdClick"
+                        android:text="忘記密碼?"
+                        android:background="@drawable/search_button"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/registerButton"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button"
+                        android:onClick="registerClick"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/search_button"
+                        android:text="註冊" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/mealforu" />
+
+            <TextView
+                android:id="@+id/logoImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="MealForU"
+                android:textSize="50dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:id="@+id/button"
+                android:layout_below="@+id/passwdEdit"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:background="@drawable/search_button"
+                android:layout_centerHorizontal="true"
+                android:onClick="login" />
+        </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemTextColor="@drawable/bottom_navigation_selector"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation"/>
+</RelativeLayout>

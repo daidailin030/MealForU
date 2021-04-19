@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:title="螢幕恆亮"
+        android:key="screen_light"
+        app:defaultValue="false"
+        android:summary="避免螢幕進入休眠模式" />
+</PreferenceScreen>

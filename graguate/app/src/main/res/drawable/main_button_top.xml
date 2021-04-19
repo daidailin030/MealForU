@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"> //按鈕按下的狀態
+        <layer-list>  //設定重疊圖片
+            <item>
+                <shape android:shape="rectangle">  //設定形狀、顏色以及樣式
+                    <solid android:color="@color/common_google_signin_btn_text_light_disabled" />
+                </shape>
+            </item>
+            <item android:top="-6px" android:left="-6px" android:right="-6px">
+                <shape android:shape="rectangle"> //指定形狀類型，默認為rectangle
+                    <solid android:color="#00FFFFFF" /> //指定形狀的填充色
+                    <stroke
+                        android:width="6px"
+                        android:color="#FFC5C5C5" /> //設定描邊
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item> //按鈕按下的狀態
+        <layer-list>  //設定重疊圖片
+            <item>
+                <shape android:shape="rectangle">  //設定形狀、顏色以及樣式
+                    <solid android:color="#00FFFFFF" />
+                </shape>
+            </item>
+            <item android:top="-6px" android:left="-6px" android:right="-6px">
+                <shape android:shape="rectangle"> //指定形狀類型，默認為rectangle
+
+                    <solid android:color="#00FFFFFF" /> //指定形狀的填充色
+                    <stroke
+                        android:width="6px"
+                        android:color="#FFC5C5C5" /> //設定描邊
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

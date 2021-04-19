@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC494646">
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="訪客"
+        android:gravity="center_vertical"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/username"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/click"
+        android:onClick="loginClick"
+        android:text="登入"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/timerButton"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/loginButton"
+        android:background="@drawable/click"
+        android:onClick="timerClick"
+        android:paddingLeft="20dp"
+        android:text="計時器"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/timerButton"
+        android:background="@drawable/click"
+        android:onClick="uploadClick"
+        android:text="上傳食譜"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+    <Button
+        android:id="@+id/likeButton"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/uploadButton"
+        android:background="@drawable/click"
+        android:onClick="likeClick"
+        android:text="我的收藏"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+    <Button
+        android:id="@+id/photoButton"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/likeButton"
+        android:background="@drawable/click"
+        android:onClick="photoClick"
+        android:text="拍照教學"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
+
+    <Button
+        android:id="@+id/commonButton"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/photoButton"
+        android:background="@drawable/click"
+        android:text="問題反映"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:onClick="commonClick"/>
+</RelativeLayout>

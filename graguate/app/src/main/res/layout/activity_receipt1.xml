@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".receipt1">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:background="#FFFFFF"/>
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:id="@+id/ScrollView"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:id="@+id/relativeLayout"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/photoView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/nameText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:src="@mipmap/ic_unknow"/>
+
+            <ImageButton
+                android:id="@+id/likeButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_below="@+id/photoView"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:onClick="addlikeClick"
+                app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/likeButton"
+                android:layout_below="@+id/photoView"
+                android:layout_marginLeft="80dp"
+                android:textSize="20dp"
+                android:id="@+id/resourceText"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inforView"
+                android:layout_below="@+id/likeButton"
+                android:textColor="@color/colorAccent"
+                android:textSize="30dp"
+                android:text="介紹"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/more"
+                android:textColor="#7fff0000"
+                android:background="@android:color/transparent"
+                android:layout_below="@id/inforText"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/re"
+                android:visibility="gone"
+                android:textColor="#7fff0000"
+                android:text="收起"
+                android:clickable="false"
+                android:background="@android:color/transparent"
+                android:layout_below="@id/inforText"
+                >
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inforView"
+                android:id="@+id/inforText"
+                android:onClick="addText"
+                android:textSize="20dp"
+                tools:ignore="OnClick" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/more"
+                android:id="@+id/ingredientView"
+                android:textColor="@color/colorAccent"
+                android:textSize="30dp"
+                android:text="食材"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/ingredientView"
+                android:layout_below="@+id/more"
+                android:layout_marginLeft="50dp"
+                android:layout_alignBottom="@+id/ingredientView"
+                android:gravity="center"
+                android:textSize="24dp"
+                android:id="@+id/personText"/>
+            <LinearLayout
+                android:id="@+id/ingredientLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ingredientView"
+                android:orientation="vertical">
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="步驟"
+                android:layout_below="@id/ingredientLayout"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="10dp"
+                android:textSize="30dp"
+                android:id="@+id/stepView"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stepView"
+                android:id="@+id/stepLayout"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tag_input_Text"
+                android:textSize="20dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/stepLayout"
+                android:layout_toLeftOf="@+id/photoButton"/>
+        </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemTextColor="@drawable/bottom_navigation_selector"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation"/>
+
+</RelativeLayout>
+
+
+
+
+

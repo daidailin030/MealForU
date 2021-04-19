@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/AppTheme.AppBarOverlay">-->
+
+<!--&lt;!&ndash;        <androidx.appcompat.widget.Toolbar&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/toolbar"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="?attr/actionBarSize"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="?attr/colorPrimary"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:popupTheme="@style/AppTheme.PopupOverlay" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <com.google.android.material.bottomnavigation.BottomNavigationView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/bottom_navigation"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_alignParentBottom="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginBottom="3dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="?android:attr/windowBackground">&ndash;&gt;-->
+<!--&lt;!&ndash;        </com.google.android.material.bottomnavigation.BottomNavigationView>&ndash;&gt;-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <include layout="@layout/activity_main" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

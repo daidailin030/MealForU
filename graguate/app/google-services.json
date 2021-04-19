@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "272934429523",
+    "firebase_url": "https://mealforudb.firebaseio.com",
+    "project_id": "mealforudb",
+    "storage_bucket": "mealforudb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272934429523:android:2ae5a99fa0a1995c1277a6",
+        "android_client_info": {
+          "package_name": "com.mealforu.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272934429523-hkfsihg8bnok3f58bsmhfejd9f8qldad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mealforu.project",
+            "certificate_hash": "850eb407c7742f3d13f715e1aa27aaf33cf5de26"
+          }
+        },
+        {
+          "client_id": "272934429523-1jqg4db6dh09ri1ihnh2qojae40i3h5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJp-Dvvi5TvvnCK27aKMBl2w-Pi58e6LU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272934429523-1jqg4db6dh09ri1ihnh2qojae40i3h5s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

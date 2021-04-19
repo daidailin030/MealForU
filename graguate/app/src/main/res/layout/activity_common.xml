@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".common"
+    android:background="#FFFFFF">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ScrollView"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@+id/toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/userText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="聯絡信箱"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/userEdit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@+id/userText"
+                android:inputType="textEmailAddress"
+                android:layout_alignTop="@+id/userText"
+                android:layout_toRightOf="@+id/userText" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userText"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_alignLeft="@+id/userText"
+                android:layout_marginBottom="20dp"
+                android:text="標題"
+                android:textSize="24dp" />
+            <EditText
+                android:id="@+id/titleEdit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/userText"
+                android:layout_alignLeft="@+id/userEdit"
+                android:layout_toRightOf="@id/titleText" />
+            <TextView
+                android:id="@+id/contentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_alignLeft="@+id/userText"
+                android:layout_marginBottom="20dp"
+                android:text="內容"
+                android:textSize="24dp" />
+            <EditText
+                android:id="@+id/contentEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contentText"
+                android:layout_alignLeft="@+id/contentText"
+                android:lines="10"
+                android:minLines="5"
+                android:gravity="top|left"
+                android:maxLines="15"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="送出"
+                android:id="@+id/sendButton"
+                android:layout_below="@+id/contentEdit"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:background="@drawable/search_button"
+                android:layout_centerHorizontal="true"
+                android:onClick="sendClick" />
+        </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemTextColor="@drawable/bottom_navigation_selector"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation"/>
+</RelativeLayout>
