@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".register">
+    tools:context=".register"
+    android:layout_marginBottom="30dp"
+    android:layout_marginRight="30dp">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -197,12 +199,12 @@
                     android:gravity="center">
                     <Button
                         android:id="@+id/enterButton"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/passwdagainText"
                         android:layout_toEndOf="@+id/passwdagainText"
-                        android:width="2dp"
-                        android:background="#FFFFFF"
+
+                        android:background="@drawable/search_button"
                         android:drawableLeft="@drawable/ic_check_black_24dp"
                         android:onClick="sendClick"
                         android:padding="10dp"
@@ -219,13 +221,12 @@
                     android:gravity="center">
                     <Button
                         android:id="@+id/clearButton"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/passwdagainText"
                         android:layout_toEndOf="@+id/passwdagainText"
                         android:layout_toRightOf="@+id/enterButton"
-                        android:width="2dp"
-                        android:background="#FFFFFF"
+                        android:background="@drawable/search_button"
                         android:drawableLeft="@drawable/ic_clear_black_24dp"
                         android:onClick="clearClick"
                         android:padding="10dp"

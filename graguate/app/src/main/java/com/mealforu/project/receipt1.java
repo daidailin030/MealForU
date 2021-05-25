@@ -20,6 +20,7 @@ import android.os.HandlerThread;
 import android.text.TextPaint;
 import android.text.method.NumberKeyListener;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -76,6 +77,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.widget.TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM;
 import static com.mealforu.project.MainActivity.UID;
 
 public class receipt1 extends AppCompatActivity {
@@ -227,7 +229,7 @@ public class receipt1 extends AppCompatActivity {
                         TextView nameText = findViewById(R.id.nameText);
                         String name = document.get("name")+"";
                         nameText.setText(name);
-                        nameText.setTextSize(30);
+                        nameText.setTextSize(20);
 
                         final TextView inforText = findViewById(R.id.inforText);
                         final Button more=findViewById(R.id.more);

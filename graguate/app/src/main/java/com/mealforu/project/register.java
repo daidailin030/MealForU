@@ -43,7 +43,7 @@ import static com.mealforu.project.MainActivity.UID;
 public class register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String userUID;
-    EditText nameEdit,passwdEdit, passwdagainEdit, emailEdit, telEdit;
+    EditText nameEdit, passwdEdit, passwdagainEdit, emailEdit, telEdit;
     RadioGroup genderGroup;
     String gender;
     private Handler mThreadHandler;
@@ -57,7 +57,7 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu12);
 
-        TextView logoText = (TextView)findViewById(R.id.logoText);
+        TextView logoText = (TextView) findViewById(R.id.logoText);
         Typeface myTypeFace = Typeface.createFromAsset(getAssets(), "font/BRUSHSCI.TTF");
         logoText = (TextView) findViewById(R.id.logoText);
         logoText.setTypeface(myTypeFace);
@@ -84,6 +84,7 @@ public class register extends AppCompatActivity {
         // 用toolbar做為APP的ActionBar
         setSupportActionBar(toolbar);
     }
+
     Runnable loginRunnable = new Runnable() {
         @Override
         public void run() {
@@ -106,20 +107,21 @@ public class register extends AppCompatActivity {
 //            reload_status = true;
         }
     }
-    public void BottomNavigationView(){
-        final BottomNavigationView bn = (BottomNavigationView)findViewById(R.id.bottom_navigation);
+
+    public void BottomNavigationView() {
+        final BottomNavigationView bn = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.nav_service:
                         Intent service_intent = new Intent();
-                        service_intent.setClass(register.this , service.class);
+                        service_intent.setClass(register.this, service.class);
                         startActivity(service_intent);
                         break;
                     case R.id.nav_home:
                         Intent home_intent = new Intent();
-                        home_intent.setClass(register.this , MainActivity.class);
+                        home_intent.setClass(register.this, MainActivity.class);
                         startActivity(home_intent);
                         break;
                     case R.id.nav_photo:
@@ -130,18 +132,18 @@ public class register extends AppCompatActivity {
             }
         });
     }
+
     public void sendClick(View v) {
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
-        final String  name = nameEdit.getText().toString();
-        final String  passwd = passwdEdit.getText().toString();
+        final String name = nameEdit.getText().toString();
+        final String passwd = passwdEdit.getText().toString();
         final String passwdagain = passwdagainEdit.getText().toString();
-        final String  email = emailEdit.getText().toString();
-        final String  tel = telEdit.getText().toString();
+        final String email = emailEdit.getText().toString();
+        final String tel = telEdit.getText().toString();
 
-        genderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        genderGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId) {
+                switch (checkedId) {
                     case R.id.maleButton:
                         gender = "男";
                         break;
@@ -151,13 +153,12 @@ public class register extends AppCompatActivity {
                 }
             }
         });
-        if(name.isEmpty() || name.isEmpty() || passwd.isEmpty() || passwdagain.isEmpty()){
+        if (name.isEmpty() || name.isEmpty() || passwd.isEmpty() || passwdagain.isEmpty()) {
             new AlertDialog.Builder(register.this)
                     .setTitle("必填欄位空白")
                     .setPositiveButton("確認", null)
                     .show();
-        }else
-        if(!passwd.equals(passwdagain) && !passwd.isEmpty() && !passwdagain.isEmpty()){
+        } else if (!passwd.equals(passwdagain) && !passwd.isEmpty() && !passwdagain.isEmpty()) {
             new AlertDialog.Builder(register.this)
                     .setTitle("密碼不同!")
                     .setPositiveButton("確認", new DialogInterface.OnClickListener() {
@@ -168,7 +169,7 @@ public class register extends AppCompatActivity {
                         }
                     })
                     .show();
-        }else{
+        } else {
             if (passwd.equals(passwdagain) && !passwd.isEmpty() && !passwdagain.isEmpty()) {
                 mAuth = FirebaseAuth.getInstance();
                 mAuth.createUserWithEmailAndPassword(email, passwd)
@@ -177,25 +178,25 @@ public class register extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         String message = task.isSuccessful() ? "註冊成功" : "註冊失敗";
-                                        if(message.equals("註冊成功")){
+                                        if (message.equals("註冊成功")) {
                                             mAuth.signInWithEmailAndPassword(email, passwd)
                                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<AuthResult> task) {
-                                                            if (!task.isSuccessful()){
+                                                            if (!task.isSuccessful()) {
                                                                 Log.d("onComplete", "登入失敗");
                                                                 Intent intent = new Intent();
-                                                                intent.setClass(register.this,login.class);
+                                                                intent.setClass(register.this, login.class);
                                                                 startActivity(intent);
-                                                            }else{
-                                                                Map<String,Object> user = new HashMap<>();
-                                                                user.put("user",name);
-                                                                user.put("gender",gender);
-                                                                user.put("email",email);
-                                                                user.put("tel",tel);
-                                                                user.put("password",passwd);
-                                                                user.put("history","");
-                                                                user.put("collection","");
+                                                            } else {
+                                                                Map<String, Object> user = new HashMap<>();
+                                                                user.put("user", name);
+                                                                user.put("gender", gender);
+                                                                user.put("email", email);
+                                                                user.put("tel", tel);
+                                                                user.put("password", passwd);
+//                                                                user.put("history", "");
+//                                                                user.put("collection", "");
                                                                 userUID = mAuth.getUid();
                                                                 db.collection("user").document(userUID)
                                                                         .set(user)
@@ -206,33 +207,41 @@ public class register extends AppCompatActivity {
                                                                                                    }
                                                                                                }
                                                                         );
-                                                                List<String> tmpList = new ArrayList<>();
+                                                                ArrayList<String> tmpList = new ArrayList<>();
                                                                 Map<String, Object> data = new HashMap<>();
+                                                                Map<String, Object> datail = new HashMap<>();
+                                                                Map<String, Object> data2 = new HashMap<>();
+                                                                Map<String, Object> tagdatail = new HashMap<>();
+                                                                tagdatail.put("日本料理",1);
                                                                 data.put("all", tmpList);
-                                                                data.put("all", tmpList);
-                                                                data.put("all", tmpList);
-                                                                db.collection(MainActivity.UID).document("collection")
-                                                                        .set(data, SetOptions.merge());
+                                                                data2.put("keyword", datail);
+                                                                data2.put("view",datail );
+                                                                data2.put("hashtag", tagdatail);
+
+                                                                System.out.println("id!!!!!!!!!!!!"+userUID);
+                                                                db.collection(userUID).document("collection").set(data,SetOptions.merge());
+                                                                db.collection(userUID).document("history").set(data2,SetOptions.merge());
+//                                                                db.collection(userUID).document()
                                                                 login.setting = getSharedPreferences("login", MODE_PRIVATE);
                                                                 login.setting.edit()
                                                                         .putString("PREF_USERID", userUID)
                                                                         .commit();
                                                                 Intent intent = new Intent();
-                                                                intent.setClass(register.this,MainActivity.class);
+                                                                intent.setClass(register.this, MainActivity.class);
                                                                 finish();
                                                                 overridePendingTransition(0, 0);
                                                                 startActivity(intent);
                                                                 overridePendingTransition(0, 0);
-                                                                Toast.makeText(getApplicationContext(), "登入成功", Toast.LENGTH_SHORT).show();
+                                                                Toast.makeText(getApplicationContext(), "註冊成功", Toast.LENGTH_SHORT).show();
 
                                                             }
                                                         }
                                                     });
-                                        }else{
+                                        } else {
                                             new AlertDialog.Builder(register.this)
                                                     .setTitle(message)
                                                     .setMessage("再試一次")
-                                                    .setPositiveButton("OK",null)
+                                                    .setPositiveButton("OK", null)
                                                     .show();
 
                                         }
@@ -242,6 +251,7 @@ public class register extends AppCompatActivity {
             }
         }
     }
+
     public void clearClick(View v) {
 
         genderGroup.clearCheck();
@@ -251,6 +261,7 @@ public class register extends AppCompatActivity {
         emailEdit.setText("");
         telEdit.setText("");
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -267,11 +278,13 @@ public class register extends AppCompatActivity {
             }
         }
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_main_menu, menu);
         return true;
     }
+
     public void photoClick(View v) {
         Intent intent = new Intent();
         intent.setClass(register.this, photo.class);
@@ -283,6 +296,7 @@ public class register extends AppCompatActivity {
         intent.setClass(register.this, timer.class);
         startActivity(intent);
     }
+
     public void loginClick(View v) {
         Button loginButton = findViewById(R.id.loginButton);
         if (MainActivity.login_status) {
@@ -309,6 +323,7 @@ public class register extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
     public void uploadClick(View v) {
         if (MainActivity.login_status) {
             Intent intent = new Intent();
@@ -335,6 +350,7 @@ public class register extends AppCompatActivity {
         intent.setClass(register.this, common.class);
         startActivity(intent);
     }
+
     public void likeClick(View v) {
         if (MainActivity.login_status) {
             Intent intent = new Intent();

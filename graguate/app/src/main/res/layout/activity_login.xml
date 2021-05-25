@@ -33,7 +33,7 @@
             <EditText
                 android:id="@+id/userEdit"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/userText"
                 android:layout_marginTop="280dp"
                 android:ems="10"
@@ -50,11 +50,11 @@
                 android:layout_marginRight="50dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="密碼"
-                android:textSize="24dp" />
+                android:textSize="24sp" />
             <EditText
                 android:id="@+id/passwdEdit"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="350dp"
                 android:ems="10"
                 android:inputType="textPassword"

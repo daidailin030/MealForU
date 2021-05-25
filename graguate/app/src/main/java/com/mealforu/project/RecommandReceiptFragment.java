@@ -68,6 +68,7 @@ public class RecommandReceiptFragment extends Fragment {
         }else {
             mThreadHandler.post(nonlogin);
         }
+//        mThreadHandler.post(nonlogin);
 
 
         recyclerView = root.findViewById(R.id.recommend_receipt_list);
@@ -97,7 +98,6 @@ public class RecommandReceiptFragment extends Fragment {
                             hashtag_list = sortByValue(hashtag_list);
                             keyword_list = sortByValue(keyword_list);
                             view_list = sortByValue(view_list);
-
                             mThreadHandler.post(t1);
                         }
                     });
@@ -211,7 +211,7 @@ public class RecommandReceiptFragment extends Fragment {
 
         // 1. Convert Map to List of Map
         List<Map.Entry<String, Integer>> list =
-                new LinkedList<Map.Entry<String, Integer>>(unsortMap.entrySet());
+                new LinkedList<>(unsortMap.entrySet());
 
         // 2. Sort list with Collections.sort(), provide a custom Comparator
         //    Try switch the o1 o2 position for a different order

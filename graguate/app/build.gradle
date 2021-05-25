@@ -23,10 +23,15 @@ android {
     aaptOptions {
         noCompress "tflite"
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 repositories {
     jcenter()
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -64,7 +69,7 @@ dependencies {
     implementation 'com.github.danylovolokh:hashtag-helper:1.1.0'
 
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
-    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+//    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.firebase:firebase-ml-vision-automl:18.0.5'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
@@ -72,4 +77,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.google.mlkit:image-labeling-automl:16.0.0'
     implementation 'com.google.mlkit:linkfirebase:16.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

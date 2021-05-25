@@ -65,6 +65,7 @@ public class addnote extends AppCompatActivity {
     private ArrayList<String> amount_arr = new ArrayList<>();
     private Map<String, Object> recipedetail = new HashMap<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

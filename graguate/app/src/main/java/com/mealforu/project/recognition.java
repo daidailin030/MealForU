@@ -89,8 +89,9 @@ public class recognition extends AppCompatActivity {
         mThreadHandler = new Handler(mThread.getLooper());
         mThreadHandler.post(loginRunnable);
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setLogo(R.drawable.mealforu);
         toolbar.setTitle("MealForU");
+        toolbar.setNavigationIcon(R.drawable.mealforu_opt);
+        toolbar.setTitleMarginStart(120);
         toolbar.inflateMenu(R.menu.recognition_menu);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -157,15 +158,7 @@ public class recognition extends AppCompatActivity {
         }
     };
     public void BottomNavigationView() {
-        final BottomNavigationView bn = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        bn.post(new Runnable() {
-            @Override
-            public void run() {
-                ScrollView ScrollView = findViewById(R.id.ScrollView);
-                ScrollView.setLayoutParams(new RelativeLayout.LayoutParams(
-                        MainActivity.width, MainActivity.height));
-            }
-        });
+        final BottomNavigationView bn = findViewById(R.id.bottom_navigation);
         bn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

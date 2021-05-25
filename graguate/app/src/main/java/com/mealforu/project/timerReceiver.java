@@ -14,15 +14,15 @@ public class timerReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String name = intent.getStringExtra("sender_name");
         Toast.makeText(context,"時間到",Toast.LENGTH_SHORT).show();
-        playDefaultNotification(context);
+//        playDefaultNotification(context);
 
     }
-    public static void playDefaultNotification(Context context) {
-        Uri defaultNotificationURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if(defaultNotificationURI == null){
-            System.out.println("nooooooooooooooo");
-        }
-        Ringtone soundOfDefaultNotification = RingtoneManager.getRingtone(context, defaultNotificationURI);
-        soundOfDefaultNotification.play();
-    }
+//    public static void playDefaultNotification(Context context) {
+//        Uri defaultNotificationURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+//        if(defaultNotificationURI == null){
+//            System.out.println("nooooooooooooooo");
+//        }
+//        Ringtone soundOfDefaultNotification = RingtoneManager.getRingtone(context, defaultNotificationURI);
+//        soundOfDefaultNotification.play();
+//    }
 }

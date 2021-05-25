@@ -3,7 +3,9 @@ package com.mealforu.project;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -25,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -75,11 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setClickable(false);
-        toolbar.setLogo(R.drawable.mealforu);
-        toolbar.setTitle("MealForU");
-
-        // 用toolbar做為APP的ActionBar
+        toolbar.setNavigationIcon(R.drawable.mealforu_opt);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
+        mTitle.setText(toolbar.getTitle());
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // 用toolbar做為APP的ActionBar
 
         db = FirebaseFirestore.getInstance();
 
@@ -145,17 +149,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     public void BottomNavigationView() {
-        final BottomNavigationView bn = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        bn.post(new Runnable() {
-            @Override
-            public void run() {
-                int bnheight = (int) bn.getMeasuredHeight();
-                height -= bnheight;
-                ScrollView ScrollView = findViewById(R.id.ScrollView);
-                ScrollView.setLayoutParams(new RelativeLayout.LayoutParams(
-                        width, height));
-            }
-        });
+        final BottomNavigationView bn = findViewById(R.id.bottom_navigation);
+//        bn.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                int bnheight = (int) bn.getMeasuredHeight();
+//                height -= bnheight;
+//                ScrollView ScrollView = findViewById(R.id.ScrollView);
+//                ScrollView.setLayoutParams(new RelativeLayout.LayoutParams(
+//                        width, height));
+//            }
+//        });
         bn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -287,6 +291,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         db.collection(UID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -303,13 +308,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     noteID_list.add(document.getId());
 
                                     nametmp.setText(document.get("title").toString().replaceAll("[\\[\\]\\s]",""));
-                                    nametmp.setTextSize(30);
+//                                    nametmp.setTextSize(30);
                                     nametmp.setGravity(Gravity.CENTER);
+                                    nametmp.setTextSize(20);
+                                    nametmp.setTextColor(Color.parseColor("#000000"));
                                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                                             LinearLayout.LayoutParams.MATCH_PARENT,
                                             LinearLayout.LayoutParams.WRAP_CONTENT
                                     );
-                                    params.setMargins(0, 50, 0, 0);
+                                    params.setMargins(5, 20, 5, 0);
                                     nametmp.setLayoutParams(params);
                                     tmp.addView(nametmp);
 
@@ -319,14 +326,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     for (String Stringtmp: ingredient_arr){
                                         count++;
                                         nameString += Stringtmp+"\n";
-                                        if(count>5){
+                                        if(count>3){
                                             break;
                                         }
                                     }
                                     ingredienttmp.setText(nameString);
                                     ingredienttmp.setTextSize(15);
                                     ingredienttmp.setGravity(Gravity.CENTER);
-
+                                    ingredienttmp.setTextColor(Color.parseColor("#000000"));
                                     tmp.addView(ingredienttmp);
                                     tmp.setLayoutParams(new ViewGroup.LayoutParams(with, with));
                                     tmp.setTag(document.getId());

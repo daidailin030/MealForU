@@ -26,7 +26,10 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF"
             android:id="@+id/relativeLayout"
-            android:padding="16dp">
+            android:paddingTop="80dp"
+            android:paddingBottom="50dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
             <TextView
                 android:id="@+id/nameText"
@@ -34,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:textSize="20dp" />
+                android:autoSizeTextType="uniform"
+                 />
 
             <ImageView
                 android:id="@+id/photoView"
@@ -148,8 +152,7 @@
                 android:textSize="20dp"
                 android:minHeight="48dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/stepLayout"
-                android:layout_toLeftOf="@+id/photoButton"/>
+                android:layout_below="@+id/stepLayout" />
         </RelativeLayout>
     </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
