@@ -3,4 +3,6 @@
 
 
 ![Alt text](https://github.com/ttom1224/mealforU/blob/master/graguate/src/Screenshot_20210524-225032.jpg)
-
+![Alt text](https://github.com/ttom1224/mealforU/blob/master/graguate/src/Screenshot_20210524-224519.jpg)
+![Alt text](https://github.com/ttom1224/mealforU/blob/master/graguate/src/Screenshot_20210524-224754.jpg)
+![Alt text](https://github.com/ttom1224/mealforU/blob/master/graguate/src/Screenshot_20210524-224941.jpg)
